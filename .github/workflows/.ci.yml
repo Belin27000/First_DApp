@@ -32,7 +32,7 @@ jobs:
         uses: actions/cache@v2  # Utilise l'action de cache officielle de GitHub
         with:
           path: './backend/node_modules'  # Chemin des fichiers à mettre en cache (dossier node_modules)
-          key: node_modules-${{ hashFiles('package-lock.json') }}  # Clé unique basée sur le contenu de package-lock.json
+          key: node_modules-${{ hashFiles('backend/package-lock.json') }}  # Clé unique basée sur le contenu de package-lock.json
 
       # Étape 4 : Installation des dépendances du projet
       - name: Install Backend Dependencies
