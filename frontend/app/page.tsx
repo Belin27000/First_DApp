@@ -20,7 +20,7 @@ export default function Home() {
     functionName: 'getChainlinkDataFeedLatestAnswer'
   })
 
-  const { data: hash, error, isPending, writeContract } = useWriteContract();
+  const { data: hash, error, writeContract } = useWriteContract();
 
   useEffect(() => {
     console.log(ethPrice);

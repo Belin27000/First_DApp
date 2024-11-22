@@ -21,7 +21,9 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "viem": "^2.21.48",
-    "wagmi": "^2.13.0"
+    "wagmi": "^2.13.0",
+    "encoding": "^0.1.13",
+    "pino-pretty": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
