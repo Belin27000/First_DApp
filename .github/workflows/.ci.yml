@@ -27,12 +27,12 @@ jobs:
           node-version: 18  # Spécifie la version exacte de Node.js à utiliser
 
       # Étape 3 : Mise en cache des modules Node pour accélérer les builds futurs
-    #   - name: Cache Node Modules
-    #     id: cache-node-modules  # Identifiant unique pour cette étape, utilisé pour la condition de l'étape suivante
-    #     uses: actions/cache@v2  # Utilise l'action de cache officielle de GitHub
-    #     with:
-    #       path: 'node_modules'  # Chemin des fichiers à mettre en cache (dossier node_modules)
-    #       key: node_modules-${{ hashFiles('package-lock.json') }}  # Clé unique basée sur le contenu de package-lock.json
+      - name: Cache Node Modules
+        id: cache-node-modules  # Identifiant unique pour cette étape, utilisé pour la condition de l'étape suivante
+        uses: actions/cache@v2  # Utilise l'action de cache officielle de GitHub
+        with:
+          path: 'node_modules'  # Chemin des fichiers à mettre en cache (dossier node_modules)
+          key: node_modules-${{ hashFiles('package-lock.json') }}  # Clé unique basée sur le contenu de package-lock.json
 
       # Étape 4 : Installation des dépendances du projet
       - name: Install Backend Dependencies
