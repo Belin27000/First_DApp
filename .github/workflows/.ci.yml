@@ -31,7 +31,7 @@ jobs:
         id: cache-node-modules  # Identifiant unique pour cette étape, utilisé pour la condition de l'étape suivante
         uses: actions/cache@v2  # Utilise l'action de cache officielle de GitHub
         with:
-          path: 'node_modules'  # Chemin des fichiers à mettre en cache (dossier node_modules)
+          path: './backend/node_modules'  # Chemin des fichiers à mettre en cache (dossier node_modules)
           key: node_modules-${{ hashFiles('package-lock.json') }}  # Clé unique basée sur le contenu de package-lock.json
 
       # Étape 4 : Installation des dépendances du projet
@@ -40,7 +40,7 @@ jobs:
         working-directory: ./backend
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci  # Utilise 'npm ci' pour une installation propre et reproductible basée sur package-lock.json
-        
+
       - name: Compile contracts
         working-directory: ./backend
         run: npx hardhat compile
