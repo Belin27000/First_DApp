@@ -38,7 +38,9 @@ jobs:
       - name: Install Backend Dependencies
         # Condition : exécute cette étape seulement si le cache n'a pas été trouvé (évite une réinstallation inutile)
         working-directory: ./backend
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci  # Utilise 'npm ci' pour une installation propre et reproductible basée sur package-lock.json
+        
       - name: Compile contracts
         working-directory: ./backend
         run: npx hardhat compile
