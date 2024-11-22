@@ -23,6 +23,7 @@ export default function Home() {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
   useEffect(() => {
+    console.log(ethPrice);
     if (ethPrice) {
       const ethPriceInUSD = Number(ethPrice) / 10 ** 8;
       console.log(ethPrice);
